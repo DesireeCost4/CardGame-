@@ -1,0 +1,62 @@
+package baralho;
+
+import cards.Criatura;
+import cards.Magia;
+import cards.Card;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Baralho {
+
+    //Criei dois arrays para cada tipo de carta
+    private ArrayList<Criatura> criaturas = new ArrayList<Criatura>();
+    private ArrayList<Magia> magias = new ArrayList<Magia>();
+
+
+    public Baralho () {
+        this.criaturas = new ArrayList<>();
+        this.magias = new ArrayList<>();
+    }
+
+    //Adciona criatura (param) ao baralho
+
+    public void addCriatura(Criatura criatura){
+        this.criaturas.add(criatura);
+    }
+    //Adciona magia (param) ao baralho
+    public void addMagia(Magia magia){
+        this.magias.add(magia);
+    }
+
+    //Mostra cartas do baralho iterando as duas litas de cards
+
+    public void mostrarCards(){
+        for (Criatura criatura : criaturas){
+            criatura.mostrarCard();
+        }
+
+        for (Magia magia : magias){
+            magia.mostrarCard();
+        }
+    }
+
+    //Pega o numero da quantidade de criaturas e magias e retorna
+    public int quantidadeCartas(){
+        return this.criaturas.size() + this.magias.size();
+    }
+
+    Random random  = new Random();
+    public Card randomCard(){
+        int total = quantidadeCartas();
+        int randomCard = random.nextInt(total);
+
+        if (randomCard < criaturas.size() ){
+            return criaturas.get(randomCard); //criatura
+
+        } else {
+            return magias.get(randomCard - criaturas.size()); //magia
+        }
+    }
+
+}
