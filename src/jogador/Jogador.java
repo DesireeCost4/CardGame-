@@ -26,8 +26,9 @@ public class Jogador {
     //Metodo comprar card.
     // primeiro cria uma variavel do tipo CARD e armazena o valor randomico da função random.
     //em seguida se o valor NÃO for nulo ele adciona esse card random a mao. que é um arrayList
+    //REFATORAÇÃO: REMOVI A CHAMADA AO RANDON AQUI E CHAMEI O METODO COMPRARCARD CRIADO NO BARALHO
     public void comprarCard(){
-        Card  card = baralho.randomCard();
+        Card  card = baralho.comprarCard();
 
         if (card != null){
             mao.add(card);

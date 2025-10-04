@@ -112,10 +112,9 @@ public class Main {
         jogador.comprarCard();
         jogador.comprarCard();
         jogador.comprarCard();
-
         jogador.mostrarMao();
-
         jogador.JogarCard(5);
+
 
     }
 }

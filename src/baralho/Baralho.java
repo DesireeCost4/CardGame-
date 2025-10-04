@@ -61,4 +61,19 @@ public class Baralho {
         }
     }
 
+    //Visto que a função comprarcard do jogador não estava removendo a carta do baralho
+    //deleguei as funções, essa chama a carta random e verifica seu tipo, após isso .remove do array baralho e retorna o card.
+    public Card comprarCard(){
+        Card card = randomCard();
+
+
+        if(card instanceof  Criatura){
+            criaturas.remove(card);
+        }else{
+            magias.remove(card);
+        }
+
+        return card;
+    }
+
 }
