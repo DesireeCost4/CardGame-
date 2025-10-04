@@ -46,6 +46,8 @@ public class Baralho {
         return this.criaturas.size() + this.magias.size();
     }
 
+    //Função criada para selecionar uma carta aleatória dentro do baralho.
+    //Utilizando o numero de cartas para determinar a randomização.
     Random random  = new Random();
     public Card randomCard(){
         int total = quantidadeCartas();

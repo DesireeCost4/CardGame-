@@ -16,6 +16,14 @@ public class Criatura  extends Card {
         this.def += defBonus;
     }
 
+    public int getAtk() {
+        return atk;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
 //devido o modificador da superclasse estar privado estou acessando atraves dos metodos.
     @Override
     public void mostrarCard() {
