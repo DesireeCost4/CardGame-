@@ -99,21 +99,59 @@ public class Main {
 
     //cartaSorteada.mostrarCard();
 
-
-        //Agora vou criar um obj jogador passar os atributos:
-        Jogador jogador = new Jogador("Desireê", baralhoI);
-
         //utilizando o metodo da classe jogador:
         //AO INICIAR  PARTIDA COMEÇAR COM X CARDS
-        jogador.comprarCard();
-        jogador.comprarCard();
-        jogador.comprarCard();
-        jogador.comprarCard();
-        jogador.comprarCard();
-        jogador.comprarCard();
-        jogador.comprarCard();
-        jogador.mostrarMao();
-        jogador.JogarCard(5);
+        //jogador.comprarCard();
+        //jogador.comprarCard();
+        //jogador.comprarCard();
+        //jogador.comprarCard();
+        //jogador.comprarCard();
+        //jogador.comprarCard();
+        //jogador.comprarCard();
+        //jogador.mostrarMao();
+        //jogador.JogarCard(5);
+
+        //Criando um campo vazio.
+        Campo campo = new Campo();
+
+        //Agora vou criar um obj jogador passar os atributos:
+        //esses jogadores agora devem receber  "campo" p representar o seu campo de batalha.
+        Jogador jogador1 = new Jogador("Desireê", baralhoI, campo);
+        Jogador jogador2= new Jogador("Alice",  baralhoI, campo);
+
+
+        //Iniciando turnos:
+        //chamando dois jogadores
+        List<Jogador> jogadores = new ArrayList<>();
+        jogadores.add(jogador1);
+        jogadores.add(jogador2);
+
+        //Criando novo jogo
+        Game jogo = new Game(jogadores);
+
+        //Comprando 7 cartas iniciais
+        for (int i = 0; i < 7; i++){
+            jogador1.comprarCard();
+            jogador2.comprarCard();
+        }
+
+        //Sinalizando primeiro jogador
+        Jogador jogadorAtual = jogo.getJogadorAtual();
+        System.out.println("Turno de: " + jogo.getJogadorAtual().getName()+ "\n");
+
+        jogadorAtual.mostrarMao();
+        jogadorAtual.JogarCard(2);
+
+        jogo.proximoTurno();
+
+        //Sinalizando segundo jogador
+        jogadorAtual = jogo.getJogadorAtual();
+        System.out.println("\nTurno de: "+jogo.getJogadorAtual().getName()+ "\n");
+
+        //ações do jogador
+        jogadorAtual.mostrarMao();
+        jogadorAtual.JogarCard(1);
+
 
 
     }

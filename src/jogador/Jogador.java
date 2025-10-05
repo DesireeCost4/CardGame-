@@ -2,6 +2,7 @@ package jogador;
 
 import baralho.Baralho;
 import cards.Card;
+import game.Campo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +15,16 @@ public class Jogador {
     private int vida;
     private Baralho baralho;
     private List<Card>mao;
+    private Campo campo;
 
     //Declarando o construtor, pois irá fácilitar na hora de criar o obj
-    public Jogador(String nome, Baralho baralho) {
+    public Jogador(String nome, Baralho baralho, Campo campo) {
         this.nome = nome;
         this.baralho = baralho;
+        this.campo = campo;
         this.vida = 20;
         this.mao = new ArrayList<>();
+
     }
 
     //Metodo comprar card.
@@ -59,15 +63,16 @@ public class Jogador {
     //criei o if para validar se existe indice valido para ser acessado.
     public void JogarCard(int i){
 
-        if ( i >= 0 && i < mao.size()){
+          if ( i >= 0 && i < mao.size()){
             Card card = mao.remove(i); // Sendo true o card será removido da mão atraves do remove.
+            //aqui que devo adcionar a lógica de inserir card ao campo de batalha:
+            campo.adcionarCard(card);
             System.out.println(nome + " jogou a carta: " + card.getName());
         } else {
             System.out.println("indice invalido" + nome + "tem apenas" + mao.size() + "cartas na mão.");
         }
 
     }
-
 
     //get e set básico padron
     public String getName() { return nome; }

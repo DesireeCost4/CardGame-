@@ -66,7 +66,6 @@ public class Baralho {
     public Card comprarCard(){
         Card card = randomCard();
 
-
         if(card instanceof  Criatura){
             criaturas.remove(card);
         }else{
