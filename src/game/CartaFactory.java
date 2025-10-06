@@ -2,6 +2,7 @@ package game;
 
 import cards.Criatura;
 import cards.Magia;
+import cards.TipoMagia;
 
 public class CartaFactory {
 
@@ -12,8 +13,8 @@ public class CartaFactory {
         return new Criatura(nome, descricao, atk, def);
     }
 
-    public static Magia criarMagia(String nome, String descricao, int atk, int def) {
-        return new Magia(nome, descricao, atk, def);
+    public static Magia criarMagia(String nome, String descricao, int atk, int def, TipoMagia tipoMagia) {
+        return new Magia(nome, descricao, atk, def,tipoMagia );
     }
 
 }

@@ -2,7 +2,11 @@ package jogador;
 
 import baralho.Baralho;
 import cards.Card;
+import cards.Criatura;
+import cards.Magia;
+import cards.TipoMagia;
 import game.Campo;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +22,12 @@ public class Jogador {
     private Campo campo;
 
     //Declarando o construtor, pois irá fácilitar na hora de criar o obj
-    public Jogador(String nome, Baralho baralho, Campo campo) {
+    public Jogador(String nome, Baralho baralho, Campo campo ) {
         this.nome = nome;
         this.baralho = baralho;
-        this.campo = campo;
+        this.campo = new Campo();
         this.vida = 20;
+        this.campo = campo;
         this.mao = new ArrayList<>();
 
     }
@@ -61,23 +66,47 @@ public class Jogador {
 
     // implementando o metodo de remoção de carta da mão, aqui encontrei um erro de indice
     //criei o if para validar se existe indice valido para ser acessado.
-    public void JogarCard(int i){
+    public void JogarCard(int i, Jogador oponente){
 
           if ( i >= 0 && i < mao.size()){
             Card card = mao.remove(i); // Sendo true o card será removido da mão atraves do remove.
             //aqui que devo adcionar a lógica de inserir card ao campo de batalha:
-            campo.adcionarCard(card);
-            System.out.println(nome + " jogou a carta: " + card.getName());
-        } else {
-            System.out.println("indice invalido" + nome + "tem apenas" + mao.size() + "cartas na mão.");
-        }
+
+              if (card instanceof Criatura){
+                  campo.adcionarCard(card);
+              } else if (card instanceof Magia) {
+                Magia magia =(Magia) card;
+
+                Campo campoAlvo= (magia.getTipoMagia() == TipoMagia.ALIADO) ? this.campo : oponente.getCampo();
+
+              if(!campoAlvo.getCartasNoCampo().isEmpty()){
+                  Criatura alvo = (Criatura) campoAlvo.getCartasNoCampo().get(0);
+                  magia.aplicarMagia(alvo);
+              }
+                  System.out.println("Não há criaturas no campo alvo para aplicar a magia.");
+              } else {
+        System.out.println("Índice inválido! " + nome + " tem apenas " + mao.size() + " cartas na mão.");
+    }
+
+}
 
     }
 
     //get e set básico padron
     public String getName() { return nome; }
     public int getVida() { return vida; }
-    public void setVida(int vida) { this.vida = vida; }
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
     public Baralho getBaralho() { return baralho; }
+
+    public Campo getCampo() {
+        return campo;
+    }
+
+    public List<Card> getMao() {
+        return mao;
+    }
+
 
 }

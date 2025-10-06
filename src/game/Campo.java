@@ -1,6 +1,9 @@
 package game;
 
 import cards.Card;
+import cards.Criatura;
+import jogador.Jogador;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,19 +24,51 @@ public class Campo {
     }
 
     public void RemoverCard(Card card){
-        cartasNoCampo.remove(card);
+
+        if (cartasNoCampo.contains(card)) {
+            cartasNoCampo.remove(card);
+        } else {
+            System.out.println(card.getName() + " nao encontrado!");
+        }
+
+    }
+
+    //remove por index
+    public void removerCarta(int posicao) {
+        if (posicao >= 0 && posicao < cartasNoCampo.size()) {
+            Card card = cartasNoCampo.remove(posicao);
+            System.out.println(card.getName() + " foi removida do campo!");
+        } else {
+            System.out.println("Posição inválida.");
+        }
     }
 
     public void mostrarCampo() {
         System.out.println("Cartas no campo:");
+
         for (int i = 0; i < cartasNoCampo.size(); i++) {
-            System.out.println("[" + i + "] " + cartasNoCampo.get(i).getName());
+            Card card = cartasNoCampo.get(i);
+            System.out.print("[" + i + "] " + card.getName());
+
+            if (card instanceof Criatura) {
+                Criatura criatura = (Criatura) card;  // variável diferente
+                System.out.print(" (ATK: " + criatura.getAtk() + " / DEF: " + criatura.getDef() + ")");
+            }
+
+            System.out.println();
         }
     }
+
 
     public List<Card> getCartasNoCampo() {
         return cartasNoCampo;
     }
+
+
+    //Removendo todos os métodos de combate do campo e levando para Classe batalha.
+
+
+
 
 }
 
