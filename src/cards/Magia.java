@@ -51,7 +51,4 @@ public class Magia  extends Card {
     public TipoMagia getTipoMagia() {
         return tipoMagia;
     }
-
-
-
 }

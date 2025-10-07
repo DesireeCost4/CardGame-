@@ -8,50 +8,50 @@ import jogador.Jogador;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
+        Scanner input = new Scanner(System.in);
 
-        //Criando baralho que já vem com todas as cartas
-        Baralho baralhoI = new Baralho();
-        Jogador jogador1 = new Jogador("Desireê", baralhoI, new Campo());
-        Jogador jogador2 = new Jogador("Alice", baralhoI, new Campo());
+        System.out.println("=== Bem-vindo! ===");
+        System.out.println("=== TXT.Game ===");
+        System.out.println("1 - Iniciar Jogo");
+        System.out.println("2 - Sair");
 
-        //aqui estou usando um array de valor fixo sendo declarado com (LIST.OF)
-        //Nada após sua criação pode altará-la.
-        Game jogo = new Game(List.of(jogador1, jogador2));
-        jogo.distribuirCartasIniciais();
-        jogo.iniciarJogo();
+        System.out.print("Escolha uma opção: ");
 
-      //  //Iniciando turnos:
-      //  //chamando dois jogadores
-      //  List<Jogador> jogadores = new ArrayList<>();
-      //  jogadores.add(jogador1);
-      //  jogadores.add(jogador2);
-//
-      //  //Sinalizando turno do primeiro jogador
-      //  Jogador jogadorAtual = jogo.getJogadorAtual();
-      //  System.out.println("Turno de: " + jogo.getJogadorAtual().getName() + "\n");
-      //  //ações
-      //  jogadorAtual.mostrarMao();
-      //  jogadorAtual.JogarCard();
-//
-      //  jogo.proximoTurno();
-//
-      //  //Sinalizando segundo jogador
-      //  jogadorAtual = jogo.getJogadorAtual();
-      //  System.out.println("\nTurno de: " + jogo.getJogadorAtual().getName() + "\n");
-      //  //ações do jogador
-      //  jogadorAtual.mostrarMao();
-      //  jogadorAtual.JogarCard();
-//
-      //  //Criando obj do tipo batalha
-      //  Batalha batalha = new Batalha();
-//
-      //  //aqui já chamo a batalha com tudo que é necessário, só preciso passar os jogadores.
-      //  batalha.iniciarBatalha(jogador1, jogador2);
-      //}
+        int opcao = input.nextInt();
+
+
+
+        if (opcao == 1) {
+
+            //Criando baralho que já vem com todas as cartas
+            Baralho baralhoI = new Baralho();
+
+            //devo criar outro baralho quando houver mais cards, apenas montando e testando
+            Jogador jogador1 = new Jogador("Desireê", baralhoI, new Campo());
+            Jogador jogador2 = new Jogador("Alice", baralhoI, new Campo());
+
+
+            //aqui estou usando um array de valor fixo sendo declarado com (LIST.OF)
+            //Nada após sua criação pode altará-la.
+            Game jogo = new Game(List.of(jogador1, jogador2));
+
+            //utilizando o metodo inicial de distribuição de cartas
+            jogo.distribuirCartasIniciais();
+
+            //chamando inicializador de jogo > onde acontece todos os turnos e regras da partida.
+            jogo.iniciarJogo();
+
+        } else if (opcao == 2) {
+            System.out.println("Saindo, até a proxima!");
+        }
+
+
+
 }
 }
 

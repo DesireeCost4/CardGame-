@@ -5,6 +5,7 @@ public abstract class Card {
 
     private String name;
     private String description;
+    private int custoMana;
 
 //O construtor irá ajudar na criação do obj lá no main
 
@@ -26,6 +27,9 @@ public abstract class Card {
     //Esse metodo abstrato é definido como um contrato onde irei implementar na classe que extender de cards.Card.
     public abstract void mostrarCard();
 
+    public int getCustoMana() {
+        return custoMana;
+    }
 
 
 

@@ -10,6 +10,7 @@ public class Batalha {
 
     //Esse metodo inicialmente foi escrito no main, pois no momento fiquei confusa com a responsabilidade dele
     //porém é totalmente coerente que ele seja mantido aqui, pois além de ser parte fundamental da batalha, mantém o código limpo no main o fluxo tá bem mais claro agora.
+
     public void iniciarBatalha(Jogador jogadorAtacante, Jogador jogadorDefensor) {
         Campo campoAtacante = jogadorAtacante.getCampo();
         Campo campoDefensor = jogadorDefensor.getCampo();
@@ -74,18 +75,23 @@ public class Batalha {
     }
 
     public void resolverCombate(Criatura atacante, Criatura defensor, Campo campoAtacante, Campo campoDefensor) {
+
+        System.out.println("\n🔥🗡️ BATALHA! 🛡️🔥");
         System.out.println(atacante.getName() + " ataca " + defensor.getName());
+        System.out.println("⚔️ ATK: " + atacante.getAtk() + " | 🛡️ DEF: " + atacante.getDef());
+        System.out.println("⚔️ ATK: " + defensor.getAtk() + " | 🛡️ DEF: " + defensor.getDef());
+        System.out.println("============================\n");
 
         if (atacante.getAtk() > defensor.getDef()) {
-            System.out.println(defensor.getName() + " foi destruído!");
+            System.out.println("💥 " + defensor.getName() + " foi destruído!");
             campoDefensor.RemoverCard(defensor);
         }
         else if (atacante.getAtk() < defensor.getDef()) {
-            System.out.println(atacante.getName() + " foi destruído!");
+            System.out.println("💥 " + atacante.getName() + " foi destruído!");
             campoAtacante.RemoverCard(atacante);
         }
         else {
-            System.out.println("Ambas as criaturas foram destruídas!");
+            System.out.println(" 💥💥💥Ambas as criaturas foram destruídas!💥💥💥");
             campoAtacante.RemoverCard(atacante);
             campoDefensor.RemoverCard(defensor);
         }
@@ -94,7 +100,7 @@ public class Batalha {
     public void ataqueDireto(Criatura atacante, Jogador alvo) {
         System.out.println(atacante.getName() + " ataca diretamente " + alvo.getName());
         alvo.setVida(alvo.getVida() -  atacante.getAtk());
-        System.out.println(alvo.getName() + " agora tem " + alvo.getVida() + " de vida.");
+        System.out.println("💖 " + alvo.getName() + " agora tem " + alvo.getVida() + " de vida.");
     }
 
     }

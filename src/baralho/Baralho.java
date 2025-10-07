@@ -140,5 +140,4 @@ public class Baralho {
     public boolean estaVazio() {
         return criaturas.isEmpty() && magias.isEmpty();
     }
-
 }

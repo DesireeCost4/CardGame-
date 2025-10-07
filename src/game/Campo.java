@@ -20,8 +20,18 @@ public class Campo {
 
     public void adcionarCard(Card card) {
         cartasNoCampo.add(card);
-        System.out.println(card.getName() + " entrou no campo!");
+
+        System.out.println("\n============================");
+        System.out.println("🎴  " + card.getName() + "  🎴");
+        System.out.println("      Entrou em campo!");
+        if (card instanceof Criatura) {
+            Criatura criatura = (Criatura) card;
+            System.out.println("⚔️  ATK: " + criatura.getAtk() + " | 🛡️  DEF: " + criatura.getDef());
+        }
+        System.out.println("============================\n");
     }
+
+
 
     public void RemoverCard(Card card){
 
@@ -66,9 +76,6 @@ public class Campo {
 
 
     //Removendo todos os métodos de combate do campo e levando para Classe batalha.
-
-
-
 
 }
 

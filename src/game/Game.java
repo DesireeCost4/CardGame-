@@ -21,10 +21,15 @@ public class Game {
         boolean jogoAtivo = true;
 
         while (jogoAtivo) {
+
+
+
             Jogador jogadorAtual = getJogadorAtual();
             Jogador jogadorOponente = jogadores.get((turnoAtual + 1) % jogadores.size());
 
-            System.out.println("\nTurno de: " + jogadorAtual.getName());
+            System.out.println("\n============================");
+            System.out.println(" INICIANDO TURNO DE " + jogadorAtual.getName().toUpperCase());
+            System.out.println("============================\n");
 
             // Verifica condição de vitória: vida zerada ou baralho vazio
             if (jogadorAtual.getVida() <= 0 || jogadorOponente.getVida() <= 0 ||
@@ -33,37 +38,47 @@ public class Game {
                 if (jogadorAtual.getVida() <= 0 || jogadorAtual.getBaralho().estaVazio()) {
                     System.out.println(jogadorOponente.getName() + " venceu!");
                 } else {
-                    System.out.println(jogadorAtual.getName() + " venceu!");
+                    System.out.println(jogadorAtual.getName() + " Venceu!");
                 }
                 break; // encerra o jogo
             }
 
             // Mostrar mão do jogador atual
-            jogadorAtual.mostrarMao();
+            //jogadorAtual.mostrarMao();
+
 
             // Escolher carta
             int indice = -1;
             boolean indiceValido = false;
             while (!indiceValido) {
-                System.out.print("Escolha a carta para jogar (digite o índice): ");
+
+                System.out.println("\n🟢============================🟢");
+
+                jogadorAtual.mostrarMao();
+                System.out.println("🟢============================🟢");
+
+                System.out.print("🎯 Escolha a carta para jogar (digite o índice): ");
                 if (scanner.hasNextInt()) {
                     indice = scanner.nextInt();
                     if (indice >= 0 && indice < jogadorAtual.getMao().size()) {
                         indiceValido = true;
                     } else {
-                        System.out.println("Índice inválido! Tente novamente.");
+                        System.out.println("\n ❌ Índice inválido! Tente novamente.");
                     }
                 } else {
-                    System.out.println("Digite um número válido!");
+                    System.out.println("\n ❌ Digite um número válido!");
                     scanner.next(); // descarta entrada inválida
                 }
             }
 
             // Jogar carta
-            jogadorAtual.JogarCard(indice, jogadorOponente);
-
+            //jogadorAtual.JogarCard(indice, jogadorOponente);
+            jogadorAtual.jogarCard(indice, jogadorOponente);
+            Batalha batalha = new Batalha();
+            batalha.iniciarBatalha(jogadorAtual, jogadorOponente);
             // Avança o turno
             proximoTurno();
+
         }
 
         System.out.println("\nFim de jogo!");
