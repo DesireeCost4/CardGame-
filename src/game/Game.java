@@ -27,21 +27,31 @@ public class Game {
             Jogador jogadorAtual = getJogadorAtual();
             Jogador jogadorOponente = jogadores.get((turnoAtual + 1) % jogadores.size());
 
-            System.out.println("\n============================");
-            System.out.println(" INICIANDO TURNO DE " + jogadorAtual.getName().toUpperCase());
-            System.out.println("============================\n");
 
             // Verifica condição de vitória: vida zerada ou baralho vazio
+
+            //alterando verificação de lugar devido organização de fluxo de verificação de vitória ou derrota antes que se inicie um novo turno.
+
             if (jogadorAtual.getVida() <= 0 || jogadorOponente.getVida() <= 0 ||
                     jogadorAtual.getBaralho().estaVazio() || jogadorOponente.getBaralho().estaVazio()) {
 
                 if (jogadorAtual.getVida() <= 0 || jogadorAtual.getBaralho().estaVazio()) {
-                    System.out.println(jogadorOponente.getName() + " venceu!");
+                    System.out.println("\n💥 PERDEU: " + jogadorAtual.getName().toUpperCase());
+                    System.out.println("🏆 Ganhou: " + jogadorOponente.getName().toUpperCase());
                 } else {
-                    System.out.println(jogadorAtual.getName() + " Venceu!");
+                    System.out.println("\n💥 PERDEU: " + jogadorOponente.getName().toUpperCase());
+                    System.out.println("🏆 Ganhou: " + jogadorAtual.getName().toUpperCase());
                 }
-                break; // encerra o jogo
+
+                System.out.println("\n🎉 Fim de jogo!");
+                break;
             }
+
+            System.out.println("\n============================");
+            System.out.println(" INICIANDO TURNO DE " + jogadorAtual.getName().toUpperCase());
+            System.out.println("============================\n");
+
+
 
             // Mostrar mão do jogador atual
             //jogadorAtual.mostrarMao();
@@ -76,7 +86,14 @@ public class Game {
             jogadorAtual.jogarCard(indice, jogadorOponente);
             Batalha batalha = new Batalha();
             batalha.iniciarBatalha(jogadorAtual, jogadorOponente);
+            scanner.nextLine();
+
+            //isso aqui prepara para algum evento que pode vir do frontend.
+            System.out.println("\nDigite ENTER para encerrar seu turno...");
+            scanner.nextLine();
+
             // Avança o turno
+            System.out.println("\n=== Fim do turno de " + jogadorAtual.getName() + " ===\n");
             proximoTurno();
 
         }
