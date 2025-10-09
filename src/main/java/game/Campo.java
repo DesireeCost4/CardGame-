@@ -1,8 +1,7 @@
 package game;
 
-import cards.Card;
-import cards.Criatura;
-import jogador.Jogador;
+import model.cards.Card;
+import model.cards.Criatura;
 
 import java.util.ArrayList;
 import java.util.List;

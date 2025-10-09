@@ -1,10 +1,10 @@
 package game;
 
-import cards.Card;
-import cards.Criatura;
-import cards.Magia;
-import cards.TipoMagia;
-import jogador.Jogador;
+import model.cards.Card;
+import model.cards.Criatura;
+import model.cards.Magia;
+import model.cards.TipoMagia;
+import model.jogador.Jogador;
 
 public class Batalha {
 

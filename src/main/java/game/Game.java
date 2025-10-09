@@ -1,12 +1,10 @@
 package game;
-import jogador.Jogador;
+import model.jogador.Jogador;
 
 
 
 import java.util.List;
 import java.util.Scanner;
-
-import cards.Card;
 
 
 public class Game {
@@ -23,12 +21,15 @@ public class Game {
         while (jogoAtivo) {
 
 
-
             Jogador jogadorAtual = getJogadorAtual();
             Jogador jogadorOponente = jogadores.get((turnoAtual + 1) % jogadores.size());
 
 
-            // Verifica condição de vitória: vida zerada ou baralho vazio
+            jogadorAtual.getBaralho();
+
+
+
+            // Verifica condição de vitória: vida zerada ou model.baralho vazio
 
             //alterando verificação de lugar devido organização de fluxo de verificação de vitória ou derrota antes que se inicie um novo turno.
 
@@ -51,9 +52,7 @@ public class Game {
             System.out.println(" INICIANDO TURNO DE " + jogadorAtual.getName().toUpperCase());
             System.out.println("============================\n");
 
-
-
-            // Mostrar mão do jogador atual
+            // Mostrar mão do model.jogador atual
             //jogadorAtual.mostrarMao();
 
 
@@ -103,7 +102,7 @@ public class Game {
     }
 
 
-    //Criando uma lista do tipo jogador onde cada indice será um jogador
+    //Criando uma lista do tipo model.jogador onde cada indice será um model.jogador
     private List<Jogador> jogadores;
    private int turnoAtual;
 
