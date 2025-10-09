@@ -1,0 +1,12 @@
+model\cards\Card.class
+service\MTGService.class
+game\Game.class
+model\baralho\Baralho.class
+game\CartaFactory.class
+model\cards\Criatura.class
+game\Campo.class
+model\cards\TipoMagia.class
+model\jogador\Jogador.class
+game\Main.class
+game\Batalha.class
+model\cards\Magia.class

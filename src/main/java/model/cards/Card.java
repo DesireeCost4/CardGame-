@@ -1,4 +1,4 @@
-package cards;
+package model.cards;
 //Utilizando abstração de classe para aplicar herança.
 
 public abstract class Card {
@@ -24,7 +24,7 @@ public abstract class Card {
         return description;
     }
 
-    //Esse metodo abstrato é definido como um contrato onde irei implementar na classe que extender de cards.Card.
+    //Esse metodo abstrato é definido como um contrato onde irei implementar na classe que extender de model.cards.Card.
     public abstract void mostrarCard();
 
     public int getCustoMana() {

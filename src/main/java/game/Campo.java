@@ -1,13 +1,15 @@
 package game;
 
-import cards.Card;
-import cards.Criatura;
-import jogador.Jogador;
+import model.cards.Card;
+import model.cards.Criatura;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Campo {
+
+    Scanner scanner = new Scanner(System.in);
 
     //Criando uma lista para inserir cartas jogadas, agora sempre que penso no ato de armazenar coisas do mesmo tipo me vem List ou array a mente.
     private List<Card> cartasNoCampo;

@@ -1,4 +1,4 @@
-package cards;
+package model.cards;
 
 public class Criatura  extends Card {
 

@@ -1,10 +1,10 @@
-package jogador;
+package model.jogador;
 
-import baralho.Baralho;
-import cards.Card;
-import cards.Criatura;
-import cards.Magia;
-import cards.TipoMagia;
+import model.baralho.Baralho;
+import model.cards.Card;
+import model.cards.Criatura;
+import model.cards.Magia;
+import model.cards.TipoMagia;
 import game.Campo;
 
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class Jogador {
 
     //aqui setando os atributos básicos
-    //mao não é baralho e sim as cartas que o jogador está em maos, vendo e acessando.
+    //mao não é model.baralho e sim as cartas que o model.jogador está em maos, vendo e acessando.
     private String nome;
     private int vida;
     private Baralho baralho;

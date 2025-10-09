@@ -1,8 +1,8 @@
 package game;
 
-import cards.Criatura;
-import cards.Magia;
-import cards.TipoMagia;
+import model.cards.Criatura;
+import model.cards.Magia;
+import model.cards.TipoMagia;
 
 public class CartaFactory {
 

@@ -1,19 +1,28 @@
 package game;
 
-import cards.Criatura;
-import cards.Magia;
-import cards.Card;
-import baralho.Baralho;
-import jogador.Jogador;
+import model.baralho.Baralho;
+import model.jogador.Jogador;
+import service.MTGService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
+
+
+
         Scanner input = new Scanner(System.in);
+
+
+        MTGService scryfall = new MTGService();
+
+        //System.out.print("Digite o nome da carta: ");
+        //String nome = input.nextLine();
+//
+        //String resultado = scryfall.buscarCard(nome);
+        //System.out.println(resultado);
 
         System.out.println("=== Bem-vindo! ===");
         System.out.println("=== TXT.Game ===");
@@ -25,13 +34,12 @@ public class Main {
         int opcao = input.nextInt();
 
 
-
         if (opcao == 1) {
 
-            //Criando baralho que já vem com todas as cartas
+            //Criando model.baralho que já vem com todas as cartas
             Baralho baralhoI = new Baralho();
 
-            //devo criar outro baralho quando houver mais cards, apenas montando e testando
+            //devo criar outro model.baralho quando houver mais model.cards, apenas montando e testando
             Jogador jogador1 = new Jogador("Desireê", baralhoI, new Campo());
             Jogador jogador2 = new Jogador("Alice", baralhoI, new Campo());
 
@@ -45,6 +53,8 @@ public class Main {
 
             //chamando inicializador de jogo > onde acontece todos os turnos e regras da partida.
             jogo.iniciarJogo();
+
+
 
         } else if (opcao == 2) {
             System.out.println("Saindo, até a proxima!");
