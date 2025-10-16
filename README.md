@@ -1,17 +1,17 @@
-# 🃏 Card Game Engine (Java)
+#  Card Game Engine (Java)
 
 Este projeto implementa a **lógica central de um jogo de cartas por turnos**, inspirado em TCGs como *Magic: The Gathering*.  
 Desenvolvido inteiramente em **Java puro**, o foco está em aplicar **Programação Orientada a Objetos (POO)** e estruturar uma **mecânica de batalha funcional**, antes da integração com frameworks como Spring Boot ou Angular.
 
 ---
 
-## 🎯 Objetivo
+##  Objetivo
 
 Criar uma base sólida para um jogo de cartas digital, onde dois jogadores se enfrentam utilizando criaturas e magias, com controle de turnos, pontos de vida e mana.
 
 ---
 
-## ⚙️ Funcionalidades
+##  Funcionalidades
 
 - Sistema completo de **jogadores** (`Jogador`) com vida, mana, mão e baralho  
 - **Cartas** de diferentes tipos: `Card`, `Criatura`, `Magia`  
@@ -22,7 +22,7 @@ Criar uma base sólida para um jogo de cartas digital, onde dois jogadores se en
 
 ---
 
-## 🧩 Estrutura de classes
+##  Estrutura de classes
 
 | Classe | Responsabilidade |
 |--------|------------------|
@@ -35,7 +35,7 @@ Criar uma base sólida para um jogo de cartas digital, onde dois jogadores se en
 
 ---
 
-## 🚀 Execução
+##  Execução
 
 Clone o repositório e compile o projeto:
 
